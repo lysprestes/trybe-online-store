@@ -1,5 +1,8 @@
 import React from 'react';
-import { readShoppingCart } from '../services/addToLocalStorage';
+import { readShoppingCart, removeProduct } from '../services/addToLocalStorage';
+import close from '../images/close.png';
+import minus from '../images/minus.png';
+import add from '../images/add.png';
 
 export default class ShoppingCart extends React.Component {
   constructor(props) {
@@ -8,6 +11,8 @@ export default class ShoppingCart extends React.Component {
       cart: [],
       // cartLength: '',
     };
+
+    this.handleRemoveClick = this.handleRemoveClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +23,10 @@ export default class ShoppingCart extends React.Component {
   //   const { cart } = this.state;
   //   if (prevState.cart !== cart) return this.cartLength();
   // }
+
+  handleRemoveClick(product) {
+    removeProduct(product);
+  }
 
   cartLength = () => {
     const cartLength = readShoppingCart();
@@ -37,8 +46,29 @@ export default class ShoppingCart extends React.Component {
       <div>
         {cart.map((product, index) => (
           <div key={ index } data-testid="shopping-cart-product-name">
+            <button
+              type="button"
+              onClick={ () => this.handleRemoveClick(product) }
+            >
+              <img src={ close } alt="remover produto" width="15px" />
+            </button>
+
             { product }
+            <button
+              type="button"
+              data-testid="product-decrease-quantity"
+              // onClick={ this.onClick }
+            >
+              <img src={ minus } alt="diminuir a quantidade do item" width="15px" />
+            </button>
             <p data-testid="shopping-cart-product-quantity">{ cart.length }</p>
+            <button
+              type="button"
+              data-testid="product-increase-quantity"
+              // onClick={ this.onClick }
+            >
+              <img src={ add } alt="aumentar a quantidade do item" width="15px" />
+            </button>
           </div>
         ))}
       </div>

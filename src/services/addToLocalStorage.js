@@ -15,3 +15,8 @@ export function addToLocalStorage(product) {
     saveShoppingCart([...cartItems, product]);
   }
 }
+
+export const removeProduct = (product) => {
+  const cartItems = readShoppingCart();
+  saveShoppingCart(cartItems.filter((item) => item !== product));
+};
