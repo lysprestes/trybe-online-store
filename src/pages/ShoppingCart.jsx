@@ -28,7 +28,6 @@ export default class ShoppingCart extends React.Component {
 
   render() {
     const { cart } = this.state;
-    console.log(cart.length);
     if (cart.length === 0) {
       return (
         <h1 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h1>
