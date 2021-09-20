@@ -11,13 +11,15 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       categories: [],
-      category: '',
+      // category: '',
       searchInput: '',
       products: [],
+      checkedInput: '',
     };
     this.handleCategories = this.handleCategories.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -38,8 +40,23 @@ export default class Home extends React.Component {
   }
 
   async handleClick() {
-    const { category, searchInput } = this.state;
-    const products = await getProductsFromCategoryAndQuery(category, searchInput);
+    const { checkedInput, searchInput } = this.state;
+    const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
+    this.setState({
+      products: products.results,
+    });
+  }
+
+  async onChange(event) {
+    const { checked, id } = event.target;
+    console.log(checked, id);
+    if (checked) {
+      this.setState({
+        checkedInput: id,
+      });
+    }
+    const { checkedInput, searchInput } = this.state;
+    const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
     this.setState({
       products: products.results,
     });
@@ -60,7 +77,7 @@ export default class Home extends React.Component {
           type="button"
           onClick={ this.handleClick }
         >
-          <img src={ search } alt="lupa" width="50px" />
+          <img src={ search } alt="lupa" width="15px" />
         </button>
         <h1>
           Digite algum termo de pesquisa ou escolha uma categoria.
@@ -68,10 +85,10 @@ export default class Home extends React.Component {
         <ProductCards products={ products } />
         <p>
           <Link to="/shopping-cart" data-testid="shopping-cart-button">
-            <img src={ cartImage } width="50px" alt="Carrinho de Compras" />
+            <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
           </Link>
         </p>
-        <Categories categories={ categories } />
+        <Categories categories={ categories } onChange={ this.onChange } />
       </div>
     );
   }
