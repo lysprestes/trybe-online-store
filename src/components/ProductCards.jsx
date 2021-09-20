@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import addToLocalStorage from '../services/addToLocalStorage';
-// import ShoppingCart from '../pages/ShoppingCart';
 
 export default class ProductCards extends React.Component {
   constructor(props) {
@@ -19,9 +19,23 @@ export default class ProductCards extends React.Component {
       <div>
         {products.map(({ title, thumbnail, price }, id) => (
           <div key={ id } data-testid="product">
-            <img src={ thumbnail } alt={ `imagem ${title}` } />
-            <h4>{ title }</h4>
-            <p>{ price }</p>
+            <Link
+              data-testid="product-detail-link"
+              to={ {
+                pathname: `/details/${id}`,
+                state: {
+                  title,
+                  price,
+                  thumbnail,
+                  id,
+                },
+              } }
+            >
+              <img src={ thumbnail } alt={ ` imagem ${title}` } />
+              <h4>{title}</h4>
+            </Link>
+
+            <p>{price}</p>
             <button
               type="button"
               data-testid="product-add-to-cart"
