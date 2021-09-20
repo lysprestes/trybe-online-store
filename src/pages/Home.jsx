@@ -76,12 +76,12 @@ export default class Home extends React.Component {
         <h1>
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h1>
-        <ProductCards products={ products } />
         <p>
           <Link to="/shopping-cart" data-testid="shopping-cart-button">
             <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
           </Link>
         </p>
+        <ProductCards products={ products } />
         <Categories categories={ categories } onChange={ this.handleSelect } />
       </div>
     );
