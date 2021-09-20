@@ -49,7 +49,6 @@ export default class Home extends React.Component {
 
   async onChange(event) {
     const { checked, id } = event.target;
-    console.log(checked, id);
     if (checked) {
       this.setState({
         checkedInput: id,
