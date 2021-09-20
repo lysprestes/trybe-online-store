@@ -18,8 +18,8 @@ export default class Home extends React.Component {
     };
     this.handleCategories = this.handleCategories.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -39,21 +39,16 @@ export default class Home extends React.Component {
     });
   }
 
-  async handleClick() {
-    const { checkedInput, searchInput } = this.state;
-    const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
-    this.setState({
-      products: products.results,
-    });
-  }
-
-  async onChange(event) {
+  handleSelect(event) {
     const { checked, id } = event.target;
     if (checked) {
       this.setState({
         checkedInput: id,
-      });
+      }, this.onChange);
     }
+  }
+
+  async onChange() {
     const { checkedInput, searchInput } = this.state;
     const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
     this.setState({
@@ -74,7 +69,7 @@ export default class Home extends React.Component {
         <button
           data-testid="query-button"
           type="button"
-          onClick={ this.handleClick }
+          onClick={ this.onChange }
         >
           <img src={ search } alt="lupa" width="15px" />
         </button>
@@ -87,7 +82,7 @@ export default class Home extends React.Component {
             <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
           </Link>
         </p>
-        <Categories categories={ categories } onChange={ this.onChange } />
+        <Categories categories={ categories } onChange={ this.handleSelect } />
       </div>
     );
   }
