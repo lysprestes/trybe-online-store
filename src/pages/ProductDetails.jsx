@@ -10,7 +10,7 @@ class ProductDetails extends Component {
   render() {
     const { title } = this.state;
 
-    return <div data-testidq="product-detail-name">{title}</div>;
+    return <div data-testid="product-detail-name">{title}</div>;
   }
 }
 
