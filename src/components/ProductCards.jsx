@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import addToLocalStorage from '../services/addToLocalStorage';
+import { addToLocalStorage } from '../services/addToLocalStorage';
 
 export default class ProductCards extends React.Component {
   constructor(props) {

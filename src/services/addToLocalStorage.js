@@ -4,12 +4,12 @@ if (!JSON.parse(localStorage.getItem(SHOPPING_CART_KEY))) {
   localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify([]));
 }
 
-const readShoppingCart = () => JSON.parse(localStorage.getItem(SHOPPING_CART_KEY));
+export const readShoppingCart = () => JSON.parse(localStorage.getItem(SHOPPING_CART_KEY));
 
 const saveShoppingCart = (cartItems) => localStorage
   .setItem(SHOPPING_CART_KEY, JSON.stringify(cartItems));
 
-export default function addToLocalStorage(product) {
+export function addToLocalStorage(product) {
   if (product) {
     const cartItems = readShoppingCart();
     saveShoppingCart([...cartItems, product]);
