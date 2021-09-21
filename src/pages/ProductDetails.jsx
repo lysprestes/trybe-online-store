@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { addToLocalStorage } from '../services/addToLocalStorage';
 import cartImage from '../images/shopping-cart.png';
+import freeShipping from '../images/free.png';
 import ProductEvaluation from '../components/ProductEvaluation';
 
 class ProductDetails extends Component {
@@ -26,7 +27,10 @@ class ProductDetails extends Component {
 
         <div data-testid="product-detail-name">{title}</div>
         { item.shipping.free_shipping ? (
-          <div data-testid="free-shipping">Frete Grátis</div>
+          <div data-testid="free-shipping">
+            <img src={ freeShipping } alt="Frete Grátis" width="50px" />
+            <span>Frete Grátis</span>
+          </div>
         ) : (
           <div />
         ) }
