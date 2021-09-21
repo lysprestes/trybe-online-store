@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { addToLocalStorage } from '../services/addToLocalStorage';
+import freeShipping from '../images/free.png';
 
 export default class ProductCards extends React.Component {
   constructor(props) {
@@ -30,6 +31,14 @@ export default class ProductCards extends React.Component {
               } }
             >
               <img src={ item.thumbnail } alt={ ` imagem ${item.title}` } />
+              { item.shipping.free_shipping ? (
+                <div data-testid="free-shipping">
+                  <img src={ freeShipping } alt="Frete Grátis" width="50px" />
+                  <span>Frete Grátis</span>
+                </div>
+              ) : (
+                <div />
+              ) }
               <h4>{item.title}</h4>
             </Link>
 
