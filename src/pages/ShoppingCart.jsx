@@ -37,8 +37,8 @@ export default class ShoppingCart extends React.Component {
       <div>
         {cart.map((product, index) => (
           <div key={ index } data-testid="shopping-cart-product-name">
-            { product }
-            <p data-testid="shopping-cart-product-quantity">{ cart.length }</p>
+            { product.title }
+            <p data-testid="shopping-cart-product-quantity">{ product.amount }</p>
           </div>
         ))}
       </div>

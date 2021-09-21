@@ -16,8 +16,8 @@ class ProductDetails extends Component {
   }
 
   render() {
-    const { title } = this.state;
-
+    const { item } = this.state;
+    const { title } = item;
     return (
       <section>
         <Link to="/shopping-cart" data-testid="shopping-cart-button">
@@ -29,7 +29,7 @@ class ProductDetails extends Component {
         <button
           type="button"
           data-testid="product-detail-add-to-cart"
-          onClick={ () => this.handleCart(title) }
+          onClick={ () => this.handleCart(item) }
         >
           Adicionar ao carrinho
         </button>
