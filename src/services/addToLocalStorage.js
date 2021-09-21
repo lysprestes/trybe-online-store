@@ -6,12 +6,21 @@ if (!JSON.parse(localStorage.getItem(SHOPPING_CART_KEY))) {
 
 export const readShoppingCart = () => JSON.parse(localStorage.getItem(SHOPPING_CART_KEY));
 
-const saveShoppingCart = (cartItems) => localStorage
-  .setItem(SHOPPING_CART_KEY, JSON.stringify(cartItems));
+const saveShoppingCart = (cartItems) => (
+  localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(cartItems))
+);
 
-export function addToLocalStorage(product) {
-  if (product) {
-    const cartItems = readShoppingCart();
-    saveShoppingCart([...cartItems, product]);
+export const addToLocalStorage = (item) => {
+  const NOT_IN_STORAGE = -1;
+  if (item) {
+    const cart = readShoppingCart();
+    const index = cart.findIndex(({ id }) => id === item.id);
+    if (index === NOT_IN_STORAGE) {
+      item.amount = 1;
+      saveShoppingCart([...cart, item]);
+    } else {
+      cart[index].amount += 1;
+      saveShoppingCart(cart);
+    }
   }
-}
+};

@@ -17,29 +17,29 @@ export default class ProductCards extends React.Component {
     const { products } = this.props;
     return (
       <div>
-        {products.map(({ title, thumbnail, price }, id) => (
+        {products.map((item, id) => (
           <div key={ id } data-testid="product">
             <Link
               data-testid="product-detail-link"
               to={ {
                 pathname: `/details/${id}`,
                 state: {
-                  title,
-                  price,
-                  thumbnail,
+                  title: item.title,
+                  price: item.price,
+                  thumbnail: item.thumbnail,
                   id,
                 },
               } }
             >
-              <img src={ thumbnail } alt={ ` imagem ${title}` } />
-              <h4>{title}</h4>
+              <img src={ item.thumbnail } alt={ ` imagem ${item.title}` } />
+              <h4>{item.title}</h4>
             </Link>
 
-            <p>{price}</p>
+            <p>{item.price}</p>
             <button
               type="button"
               data-testid="product-add-to-cart"
-              onClick={ () => this.handleCart(title) }
+              onClick={ () => this.handleCart(item) }
             >
               Adicionar ao carrinho
             </button>
