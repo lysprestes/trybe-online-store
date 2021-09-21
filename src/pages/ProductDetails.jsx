@@ -25,6 +25,11 @@ class ProductDetails extends Component {
         </Link>
 
         <div data-testid="product-detail-name">{title}</div>
+        { item.shipping.free_shipping ? (
+          <div data-testid="free-shipping">Frete Grátis</div>
+        ) : (
+          <div />
+        ) }
 
         <button
           type="button"
