@@ -27,5 +27,12 @@ export const addToLocalStorage = (item) => {
 
 export const removeProduct = (product) => {
   const cartItems = readShoppingCart();
-  saveShoppingCart(cartItems.filter((item) => item !== product));
+  saveShoppingCart(cartItems.filter((item) => item.id !== product.id));
+};
+
+export const decreaseItem = (product) => {
+  const cartItems = readShoppingCart();
+  const itemFinded = cartItems.find((item) => item.id === product.id);
+  itemFinded.amount -= 1;
+  saveShoppingCart(cartItems);
 };
