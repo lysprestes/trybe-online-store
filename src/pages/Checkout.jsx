@@ -44,6 +44,9 @@ export default class Checkout extends React.Component {
             data-testid="checkout-address"
             placeholder="Endereço Completo"
           />
+          <button type="button">
+            Comprar
+          </button>
         </form>
       </section>
     );
