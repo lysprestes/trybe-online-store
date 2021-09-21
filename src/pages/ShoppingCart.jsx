@@ -52,8 +52,7 @@ export default class ShoppingCart extends React.Component {
             >
               <img src={ close } alt="remover produto" width="15px" />
             </button>
-
-            { product }
+            { product.title }
             <button
               type="button"
               data-testid="product-decrease-quantity"
@@ -61,7 +60,7 @@ export default class ShoppingCart extends React.Component {
             >
               <img src={ minus } alt="diminuir a quantidade do item" width="15px" />
             </button>
-            <p data-testid="shopping-cart-product-quantity">{ cart.length }</p>
+            <p data-testid="shopping-cart-product-quantity">{ product.amount }</p>
             <button
               type="button"
               data-testid="product-increase-quantity"
