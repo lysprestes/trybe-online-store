@@ -24,9 +24,7 @@ export default class ProductCards extends React.Component {
               to={ {
                 pathname: `/details/${id}`,
                 state: {
-                  title: item.title,
-                  price: item.price,
-                  thumbnail: item.thumbnail,
+                  item,
                   id,
                 },
               } }
