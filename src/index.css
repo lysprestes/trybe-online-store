@@ -3,6 +3,46 @@
   padding: 0;
 }
 
-.product-card {
+.categories-list, .categories-sidebar, .categories, .product-card {
   display: flex;
+}
+
+.categories-sidebar {
+  flex-direction: column;
+  padding-left: 10px;
+  padding-top: 10px;
+  background-color: #333333;
+  color: #ffffff;
+  width: 20%;
+}
+
+.categories-list {
+  margin-top: 10px;
+}
+
+.head-search {
+  /* display: flex;
+  justify-content: space-evenly; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #fff159;
+  width: 100%;
+  color: #333333;
+  font-size: 13px;
+  font-family: 'Popins' sans-serif;
+  padding: 10px;
+  height: 80px;
+}
+
+.search-title {
+  text-align: center;
+  margin: auto;
+}
+
+.cart {
+  padding-left: 80%;
+}
+
+.lupe {
+  border: #b1b1b1 solid 1px;
 }

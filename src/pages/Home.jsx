@@ -1,5 +1,6 @@
 import React from 'react';
 import search from '../images/loupe.png';
+import shopp from '../images/shopp.png';
 import Categories from '../components/Categories';
 import ProductCards from '../components/ProductCards';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
@@ -58,23 +59,35 @@ export default class Home extends React.Component {
     const { categories, searchInput, products } = this.state;
     return (
       <div data-testid="home-initial-message">
-        <input
-          type="text"
-          onChange={ this.handleChange }
-          value={ searchInput }
-          data-testid="query-input"
-        />
-        <button
-          data-testid="query-button"
-          type="button"
-          onClick={ this.onChange }
-        >
-          <img src={ search } alt="lupa" width="15px" />
-        </button>
-        <h1>
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h1>
-        <ProductCards products={ products } />
+        <div className="head-search">
+          <img src={ shopp } alt="Online shopp" width="50px" />
+          <div className="seach-box">
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                onChange={ this.handleChange }
+                value={ searchInput }
+                data-testid="query-input"
+                placeholder="Pesquise por..."
+              />
+              <span className="input-group-btn lupe">
+                <button
+                  className="btn btn-default"
+                  data-testid="query-button"
+                  type="button"
+                  onClick={ this.onChange }
+                >
+                  <img src={ search } alt="lupa" width="15px" />
+                </button>
+              </span>
+            </div>
+            <p className="search-title">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </p>
+          </div>
+          <ProductCards products={ products } />
+        </div>
         <Categories categories={ categories } onChange={ this.handleSelect } />
       </div>
     );

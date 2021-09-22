@@ -29,10 +29,14 @@ export default class ProductCards extends React.Component {
     return (
       <div>
         <Link to="/shopping-cart" data-testid="shopping-cart-button">
-          <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
-          <span data-testid="shopping-cart-size">
-            { count }
-          </span>
+          <div className="btn-group cart">
+            <div className="btn btn-default">
+              <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
+              <span data-testid="shopping-cart-size">
+                { count }
+              </span>
+            </div>
+          </div>
         </Link>
         {products.map((item, id) => (
           <div key={ id } data-testid="product" className="product-card">

@@ -5,10 +5,10 @@ export default class Categories extends React.Component {
   render() {
     const { categories, onChange } = this.props;
     return (
-      <div>
-        <aside>
+      <div className="categories-box">
+        <aside className="categories-sidebar">
           {categories.map(({ id, name }) => (
-            <label htmlFor="input" key={ id }>
+            <label htmlFor="input" key={ id } className="categories-list">
               <input
                 type="radio"
                 data-testid="category"
