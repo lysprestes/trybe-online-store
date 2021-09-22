@@ -1,23 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { addToLocalStorage } from '../services/addToLocalStorage';
+import { addToLocalStorage, readShoppingCart } from '../services/addToLocalStorage';
 import freeShipping from '../images/free.png';
+import cartImage from '../images/shopping-cart.png';
 
 export default class ProductCards extends React.Component {
   constructor(props) {
     super(props);
     this.handleCart = this.handleCart.bind(this);
+    this.state = { count: '' };
+  }
+
+  componentDidMount() {
+    this.handleCart();
   }
 
   handleCart(title) {
     addToLocalStorage(title);
+    const cartItems = readShoppingCart();
+    const total = cartItems.reduce((curr, item) => curr + item.amount, 0);
+    this.setState({ count: total });
   }
 
   render() {
     const { products } = this.props;
+    const { count } = this.state;
     return (
       <div>
+        <Link to="/shopping-cart" data-testid="shopping-cart-button">
+          <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
+          <span data-testid="shopping-cart-size">
+            { count }
+          </span>
+        </Link>
         {products.map((item, id) => (
           <div key={ id } data-testid="product" className="product-card">
             <Link
