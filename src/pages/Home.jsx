@@ -10,7 +10,6 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       categories: [],
-      // category: '',
       searchInput: '',
       products: [],
       checkedInput: '',
@@ -27,32 +26,21 @@ export default class Home extends React.Component {
 
   async handleCategories() {
     const categories = await getCategories();
-    this.setState({
-      categories,
-    });
+    this.setState({ categories });
   }
 
-  handleChange({ target }) {
-    this.setState({
-      searchInput: target.value,
-    });
+  handleChange({ target: { value } }) {
+    this.setState({ searchInput: value });
   }
 
-  handleSelect(event) {
-    const { checked, id } = event.target;
-    if (checked) {
-      this.setState({
-        checkedInput: id,
-      }, this.onChange);
-    }
+  handleSelect({ target: { checked, id } }) {
+    if (checked) return this.setState({ checkedInput: id }, this.onChange);
   }
 
   async onChange() {
     const { checkedInput, searchInput } = this.state;
     const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
-    this.setState({
-      products: products.results,
-    });
+    this.setState({ products: products.results });
   }
 
   render() {
