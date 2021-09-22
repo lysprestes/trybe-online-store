@@ -19,7 +19,7 @@ export default class ProductCards extends React.Component {
     return (
       <div>
         {products.map((item, id) => (
-          <div key={ id } data-testid="product">
+          <div key={ id } data-testid="product" className="product-card">
             <Link
               data-testid="product-detail-link"
               to={ {
@@ -45,6 +45,7 @@ export default class ProductCards extends React.Component {
             <p>{item.price}</p>
             <button
               type="button"
+              className="btn btn-success"
               data-testid="product-add-to-cart"
               onClick={ () => this.handleCart(item) }
             >

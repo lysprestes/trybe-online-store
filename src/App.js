@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ShoppingCart from './pages/ShoppingCart';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
