@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import cartImage from '../images/shopping-cart.png';
 import search from '../images/loupe.png';
 import Categories from '../components/Categories';
 import ProductCards from '../components/ProductCards';
@@ -76,11 +74,6 @@ export default class Home extends React.Component {
         <h1>
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h1>
-        <p>
-          <Link to="/shopping-cart" data-testid="shopping-cart-button">
-            <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
-          </Link>
-        </p>
         <ProductCards products={ products } />
         <Categories categories={ categories } onChange={ this.handleSelect } />
       </div>
