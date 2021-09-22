@@ -1,15 +1,20 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
+import '../css/ratingCSS.css';
 
 export default class ProductEvaluation extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      rating: 0,
+      rating: null,
+      hover: null,
       comment: '',
     };
 
     this.handleRating = this.handleRating.bind(this);
+    this.handleHoverEnter = this.handleHoverEnter.bind(this);
+    this.handleHoverLeave = this.handleHoverLeave.bind(this);
   }
 
   handleRating({ target }) {
@@ -18,8 +23,21 @@ export default class ProductEvaluation extends React.Component {
     });
   }
 
+  handleHoverEnter(rating) {
+    this.setState({
+      hover: rating,
+    });
+  }
+
+  handleHoverLeave() {
+    this.setState({
+      hover: null,
+    });
+  }
+
   render() {
-    const { rating, comment } = this.state;
+    const { rating, comment, hover } = this.state;
+    const maxRating = 5;
 
     return (
       <form>
@@ -27,16 +45,28 @@ export default class ProductEvaluation extends React.Component {
           value={ rating }
           onChange={ this.handleRating }
         >
-          <input type="radio" name="estrela" value="1" />
-          1
-          <input type="radio" name="estrela" value="2" />
-          2
-          <input type="radio" name="estrela" value="3" />
-          3
-          <input type="radio" name="estrela" value="4" />
-          4
-          <input type="radio" name="estrela" value="5" />
-          5
+          {[...Array(maxRating)].map((star, i) => {
+            const ratingValue = i + 1;
+
+            return (
+              <label htmlFor={ ratingValue } key={ ratingValue }>
+                <input
+                  type="radio"
+                  name="rating"
+                  id={ ratingValue }
+                  value={ ratingValue }
+                  onClick={ this.handleRating }
+                />
+                <FaStar
+                  className="star"
+                  size="30"
+                  onMouseEnter={ () => this.handleHoverEnter(ratingValue) }
+                  onMouseLeave={ this.handleHoverLeave }
+                  color={ ratingValue <= (hover || rating) ? '#ffc107' : 'grey' }
+                />
+              </label>
+            );
+          })}
         </div>
 
         <label htmlFor="comment">
@@ -52,7 +82,6 @@ export default class ProductEvaluation extends React.Component {
         <input
           type="button"
           value="Enviar"
-          // onClick={ }
         />
       </form>
     );
