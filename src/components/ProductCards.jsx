@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToLocalStorage, readShoppingCart } from '../services/addToLocalStorage';
 import freeShipping from '../images/free.png';
 import cartImage from '../images/shopping-cart.png';
+import './ProductCards.css';
 
 export default class ProductCards extends React.Component {
   constructor(props) {
@@ -38,41 +39,45 @@ export default class ProductCards extends React.Component {
             </div>
           </div>
         </Link>
-        {products.map((item, id) => (
-          <div key={ id } data-testid="product" className="product-card">
-            <Link
-              data-testid="product-detail-link"
-              to={ {
-                pathname: `/details/${id}`,
-                state: {
-                  item,
-                  id,
-                },
-              } }
-            >
-              <img src={ item.thumbnail } alt={ ` imagem ${item.title}` } />
-              { item.shipping.free_shipping ? (
-                <div data-testid="free-shipping">
-                  <img src={ freeShipping } alt="Frete Grátis" width="50px" />
-                  <span>Frete Grátis</span>
-                </div>
-              ) : (
-                <div />
-              ) }
-              <h4>{item.title}</h4>
-            </Link>
+        <div>
+          <div className="products">
+            {products.map((item, id) => (
+              <div key={ id } data-testid="product" className="product-card">
+                <Link
+                  data-testid="product-detail-link"
+                  to={ {
+                    pathname: `/details/${id}`,
+                    state: {
+                      item,
+                      id,
+                    },
+                  } }
+                >
+                  <img src={ item.thumbnail } alt={ ` imagem ${item.title}` } />
+                  { item.shipping.free_shipping ? (
+                    <div data-testid="free-shipping">
+                      <img src={ freeShipping } alt="Frete Grátis" width="50px" />
+                      <span>Frete Grátis</span>
+                    </div>
+                  ) : (
+                    <div />
+                  ) }
+                  <h4>{item.title}</h4>
+                </Link>
 
-            <p>{item.price}</p>
-            <button
-              type="button"
-              className="btn btn-success"
-              data-testid="product-add-to-cart"
-              onClick={ () => this.handleCart(item) }
-            >
-              Adicionar ao carrinho
-            </button>
+                <p>{item.price}</p>
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  data-testid="product-add-to-cart"
+                  onClick={ () => this.handleCart(item) }
+                >
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     );
   }

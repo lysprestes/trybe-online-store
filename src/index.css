@@ -5,19 +5,21 @@
 
 .categories-list, .categories-sidebar, .categories, .product-card {
   display: flex;
+  margin: 0;
 }
 
 .categories-sidebar {
-  flex-direction: column;
+  /* flex-direction: column; */
   padding-left: 10px;
   padding-top: 10px;
   background-color: #333333;
   color: #ffffff;
   width: 20%;
+  /* margin-right: 10px; */
 }
 
-.categories-list {
-  margin-top: 10px;
+.side-bar {
+  margin: 5px;
 }
 
 .head-search {
@@ -25,6 +27,7 @@
   justify-content: space-evenly; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 33% 33% 33%;
   background-color: #fff159;
   width: 100%;
   color: #333333;

@@ -1,0 +1,24 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-between;
+  padding: 20px 0;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.product-card {
+  align-items: center;
+  background-color: #ebebf4;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 10px gainsboro;
+  display: flex;
+  /* flex-flow: column nowrap; */
+  height: 275px;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 0;
+  width: 200px;
+}
