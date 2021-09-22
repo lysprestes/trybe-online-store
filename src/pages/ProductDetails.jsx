@@ -6,10 +6,13 @@ import cartImage from '../images/shopping-cart.png';
 import freeShipping from '../images/free.png';
 import ProductEvaluation from '../components/ProductEvaluation';
 
-class ProductDetails extends Component {
+export default class ProductDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { item: props.location.state.item, count: '' };
+    this.state = {
+      item: props.location.state.item,
+      count: '',
+    };
   }
 
   componentDidMount() {
@@ -19,8 +22,8 @@ class ProductDetails extends Component {
   handleCart(title) {
     addToLocalStorage(title);
     const cartItems = readShoppingCart();
-    const total = cartItems.reduce((curr, item) => curr + item.amount, 0);
-    this.setState({ count: total });
+    const count = cartItems.reduce((curr, item) => curr + item.amount, 0);
+    this.setState({ count });
   }
 
   render() {
@@ -43,7 +46,6 @@ class ProductDetails extends Component {
         ) : (
           <div />
         ) }
-
         <button
           type="button"
           data-testid="product-detail-add-to-cart"
@@ -51,7 +53,6 @@ class ProductDetails extends Component {
         >
           Adicionar ao carrinho
         </button>
-
         <ProductEvaluation />
       </section>
     );
@@ -61,5 +62,3 @@ class ProductDetails extends Component {
 ProductDetails.propTypes = {
   location: PropTypes.objectOf(PropTypes.any).isRequired,
 };
-
-export default ProductDetails;
