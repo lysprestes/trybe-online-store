@@ -53,10 +53,14 @@ export default class ProductCards extends React.Component {
                     },
                   } }
                 >
-                  <img src={ item.thumbnail } alt={ ` imagem ${item.title}` } />
+                  <img
+                    className="thumbnail"
+                    src={ item.thumbnail }
+                    alt={ ` imagem ${item.title}` }
+                  />
                   { item.shipping.free_shipping ? (
                     <div data-testid="free-shipping">
-                      <img src={ freeShipping } alt="Frete Grátis" width="50px" />
+                      <img src={ freeShipping } alt="Frete Grátis" width="40px" />
                       <span>Frete Grátis</span>
                     </div>
                   ) : (
