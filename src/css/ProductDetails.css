@@ -12,12 +12,16 @@ a:link, a:visited {
   color: black;
 }
 
-.body {
-  margin-right: 50px;
-  margin-left: 50px;
+.header-content, .product-title, .info, .product-evaluation, button {
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 header {
+  background-color: #fff159;
+}
+
+.header-content {
   display: flex;
   justify-content: space-between;
 }
@@ -50,5 +54,10 @@ header {
 
 .info img {
   width: 25%;
+  border: solid black;
+}
+
+.evaluation {
+  display: block;
   border: solid black;
 }

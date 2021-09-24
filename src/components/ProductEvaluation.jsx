@@ -17,12 +17,12 @@ export default class ProductEvaluation extends React.Component {
     this.handleHoverLeave = this.handleHoverLeave.bind(this);
   }
 
-  handleRating({ target: { value, id } }) {
-    this.setState({ [id]: value });
+  handleRating({ target: { value } }) {
+    this.setState({ rating: value });
   }
 
-  handleChange({ target: { value } }) {
-    this.setState({ comment: value });
+  handleChange({ target: { value, id } }) {
+    this.setState({ [id]: value });
   }
 
   handleHoverEnter(rating) {
@@ -42,15 +42,14 @@ export default class ProductEvaluation extends React.Component {
     const maxRating = 5;
 
     return (
-      <div>
+      <div className="product-evaluation">
         <h2>Avaliações</h2>
-        <form>
+        <form className="evaluation">
           <label htmlFor="email">
-            <textarea
+            <input
               id="email"
               type="text"
-              data-testid="product-detail-evaluation"
-              placeholder="Email)"
+              placeholder="Email"
               onChange={ this.handleChange }
               value={ email }
             />

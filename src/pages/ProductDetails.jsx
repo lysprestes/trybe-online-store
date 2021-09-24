@@ -34,15 +34,17 @@ export default class ProductDetails extends Component {
     return (
       <section className="body">
         <header>
-          <Link to="/">
-            <BsArrow90DegLeft size="30" />
-          </Link>
-          <Link to="/shopping-cart" data-testid="shopping-cart-button">
-            <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
-            <span data-testid="shopping-cart-size">
-              { count }
-            </span>
-          </Link>
+          <div className="header-content">
+            <Link to="/">
+              <BsArrow90DegLeft size="30" />
+            </Link>
+            <Link to="/shopping-cart" data-testid="shopping-cart-button">
+              <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
+              <span data-testid="shopping-cart-size">
+                { count }
+              </span>
+            </Link>
+          </div>
         </header>
         <div className="product-title">
           <h1 data-testid="product-detail-name">
@@ -72,10 +74,11 @@ export default class ProductDetails extends Component {
           type="button"
           data-testid="product-detail-add-to-cart"
           onClick={ () => this.handleCart(item) }
+          className="btn btn-success"
         >
           Adicionar ao carrinho
         </button>
-        <ProductEvaluation />
+        <ProductEvaluation className="product-evaluation" />
       </section>
     );
   }
