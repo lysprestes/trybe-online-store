@@ -43,7 +43,7 @@ export default class ProductEvaluation extends React.Component {
 
     return (
       <div className="product-evaluation">
-        <h2>Avaliações</h2>
+        <h4>Avaliações</h4>
         <form className="evaluation">
           <label htmlFor="email">
             <input
@@ -52,6 +52,7 @@ export default class ProductEvaluation extends React.Component {
               placeholder="Email"
               onChange={ this.handleChange }
               value={ email }
+              className="form-control"
             />
           </label>
           <div>
@@ -73,14 +74,14 @@ export default class ProductEvaluation extends React.Component {
                     size="30"
                     onMouseEnter={ () => this.handleHoverEnter(ratingValue) }
                     onMouseLeave={ this.handleHoverLeave }
-                    color={ ratingValue <= (hover || rating) ? '#ffc107' : 'grey' }
+                    color={ ratingValue <= (hover || rating) ? '#3483fa' : '#ffffff' }
                   />
                 </label>
               );
             })}
           </div>
 
-          <label htmlFor="comment">
+          <label htmlFor="comment" className="text-area">
             <textarea
               id="comment"
               type="text"
@@ -88,11 +89,13 @@ export default class ProductEvaluation extends React.Component {
               placeholder="Mensagem (opcional)"
               onChange={ this.handleChange }
               value={ comment }
+              className="form-control"
             />
           </label>
           <input
             type="button"
             value="Enviar"
+            className="btn btn-default"
           />
         </form>
       </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { BsArrow90DegLeft } from 'react-icons/bs';
-import { addToLocalStorage, readShoppingCart } from '../services/addToLocalStorage';
+import { readShoppingCart, addToLocalStorage } from '../services/addToLocalStorage';
 import cartImage from '../images/shopping-cart.png';
 import freeShipping from '../images/free.png';
 import ProductEvaluation from '../components/ProductEvaluation';
@@ -47,9 +47,9 @@ export default class ProductDetails extends Component {
           </div>
         </header>
         <div className="product-title">
-          <h1 data-testid="product-detail-name">
+          <h2 data-testid="product-detail-name">
             {`${title} - R$${price}`}
-          </h1>
+          </h2>
           { item.shipping.free_shipping ? (
             <div data-testid="free-shipping" className="shipping">
               <img src={ freeShipping } alt="Frete Grátis" width="50px" />
@@ -75,7 +75,6 @@ export default class ProductDetails extends Component {
           className="btn btn-success"
           data-testid="product-detail-add-to-cart"
           onClick={ () => this.handleCart(item) }
-          className="btn btn-success"
         >
           Adicionar ao carrinho
         </button>
