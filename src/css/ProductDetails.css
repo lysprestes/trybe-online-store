@@ -1,0 +1,54 @@
+input[type=radio].rating{
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.body {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-title .shipping {
+  display: flex;
+  align-items: center;
+  margin-left: 50px
+}
+
+.product-title .shipping span{
+  width: 50px;
+  margin-left: 10px;
+}
+
+.product-title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info div {
+  border: solid black;
+  width: 70%;
+}
+
+.info img {
+  width: 25%;
+  border: solid black;
+}
