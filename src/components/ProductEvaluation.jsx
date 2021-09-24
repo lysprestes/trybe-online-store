@@ -5,22 +5,24 @@ import '../css/ProductDetails.css';
 export default class ProductEvaluation extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       rating: null,
       hover: null,
       comment: '',
+      email: '',
     };
-
     this.handleRating = this.handleRating.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleHoverEnter = this.handleHoverEnter.bind(this);
     this.handleHoverLeave = this.handleHoverLeave.bind(this);
   }
 
-  handleRating({ target }) {
-    this.setState({
-      rating: target.value,
-    });
+  handleRating({ target: { value, id } }) {
+    this.setState({ [id]: value });
+  }
+
+  handleChange({ target: { value } }) {
+    this.setState({ comment: value });
   }
 
   handleHoverEnter(rating) {
@@ -36,13 +38,23 @@ export default class ProductEvaluation extends React.Component {
   }
 
   render() {
-    const { rating, comment, hover } = this.state;
+    const { rating, comment, hover, email } = this.state;
     const maxRating = 5;
 
     return (
       <div>
         <h2>Avaliações</h2>
         <form>
+          <label htmlFor="email">
+            <textarea
+              id="email"
+              type="text"
+              data-testid="product-detail-evaluation"
+              placeholder="Email)"
+              onChange={ this.handleChange }
+              value={ email }
+            />
+          </label>
           <div>
             {[...Array(maxRating)].map((star, i) => {
               const ratingValue = i + 1;
@@ -75,7 +87,7 @@ export default class ProductEvaluation extends React.Component {
               type="text"
               data-testid="product-detail-evaluation"
               placeholder="Mensagem (opcional)"
-              onChange={ ({ target }) => this.setState({ comment: target.value }) }
+              onChange={ this.handleChange }
               value={ comment }
             />
           </label>

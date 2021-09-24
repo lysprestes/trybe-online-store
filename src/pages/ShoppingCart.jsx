@@ -13,11 +13,7 @@ import add from '../images/add.png';
 export default class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      cart: [],
-      // cartLength: '',
-    };
-
+    this.state = { cart: [] };
     this.handleRemoveClick = this.handleRemoveClick.bind(this);
   }
 
@@ -25,17 +21,9 @@ export default class ShoppingCart extends React.Component {
     this.cartLength();
   }
 
-  // componentDidUpdate(_props, prevState) {
-  //   const { cart } = this.state;
-  //   if (prevState.cart !== cart) return this.cartLength();
-  // }
-
   handleRemoveClick(product) {
     removeProduct(product);
-    const cartItems = readShoppingCart();
-    this.setState({
-      cart: cartItems,
-    });
+    this.setState({ cart: readShoppingCart() });
   }
 
   handleDecrease(product) {
@@ -43,28 +31,19 @@ export default class ShoppingCart extends React.Component {
       this.handleRemoveClick(product);
     } else {
       decreaseItem(product);
-      const cartItems = readShoppingCart();
-      this.setState({
-        cart: cartItems,
-      });
+      this.setState({ cart: readShoppingCart() });
     }
   }
 
   handleIncrease(product) {
     if (product.amount <= product.available_quantity) {
       addToLocalStorage(product);
-      const cartItems = readShoppingCart();
-      this.setState({
-        cart: cartItems,
-      });
+      this.setState({ cart: readShoppingCart() });
     }
   }
 
   cartLength = () => {
-    const cartItems = readShoppingCart();
-    this.setState({
-      cart: cartItems,
-    });
+    this.setState({ cart: readShoppingCart() });
   }
 
   render() {
