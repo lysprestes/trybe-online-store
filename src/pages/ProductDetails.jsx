@@ -72,6 +72,7 @@ export default class ProductDetails extends Component {
 
         <button
           type="button"
+          className="btn btn-success"
           data-testid="product-detail-add-to-cart"
           onClick={ () => this.handleCart(item) }
           className="btn btn-success"
