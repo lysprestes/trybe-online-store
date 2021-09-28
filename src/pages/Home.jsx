@@ -50,6 +50,9 @@ export default class Home extends React.Component {
         <div className="head-search">
           <img src={ shopp } alt="Online shopp" width="50px" />
           <div className="seach-box">
+            <p className="search-title">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </p>
             <input
               type="text"
               onChange={ this.handleChange }
@@ -65,13 +68,12 @@ export default class Home extends React.Component {
             >
               <img src={ search } alt="lupa" width="15px" />
             </button>
-            <p className="search-title">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
           </div>
         </div>
-        <ProductCards products={ products } />
-        <Categories categories={ categories } onChange={ this.handleSelect } />
+        <div className="home-container">
+          <Categories categories={ categories } onChange={ this.handleSelect } />
+          <ProductCards products={ products } />
+        </div>
       </div>
 
     );
