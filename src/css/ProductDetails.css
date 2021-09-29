@@ -1,4 +1,4 @@
-input[type=radio].rating{
+.rating {
   display: none;
 }
 
@@ -8,8 +8,8 @@ input[type=radio].rating{
 }
 
 a:link, a:visited {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 
 .body {
@@ -31,14 +31,14 @@ header {
 }
 
 .product-title .shipping {
-  display: flex;
   align-items: center;
-  margin-left: 50px
+  display: flex;
+  margin-left: 50px;
 }
 
-.product-title .shipping span{
-  width: 50px;
+.product-title .shipping span {
   margin-left: 10px;
+  width: 50px;
 }
 
 .product-title {
@@ -57,8 +57,8 @@ header {
 }
 
 .info img {
-  width: 25%;
   border: solid black;
+  width: 25%;
 }
 
 .evaluation {
@@ -74,28 +74,28 @@ header {
   width: 90%;
 }
 
-.handle-amount{
-  display: flex;
+.handle-amount {
   align-items: stretch;
+  display: flex;
   width: 30%;
 }
 
 .amount-value {
+  background-color: white;
+  color: #212529;
   display: block;
-  text-align: center;
-  width: 100px;
-  padding: .375rem .75rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  width: 100px;
 }
 
 .btns-cart {
-  margin: 10px 0 0 30px;
-  width: 24%;
+  align-items: baseline;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  margin: 10px 0 0 30px;
+  width: 24%;
 }
