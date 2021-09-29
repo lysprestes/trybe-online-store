@@ -16,9 +16,9 @@ a:link, a:visited {
   background-color: #ededed;
 }
 
-.header-content, .product-title, .info, .product-evaluation, .btn-success {
-  margin-right: 30px;
+.header-content, .product-title, .info, .product-evaluation {
   margin-left: 30px;
+  margin-right: 30px;
 }
 
 header {
@@ -61,16 +61,41 @@ header {
   border: solid black;
 }
 
-.btn-success {
-  margin-top: 10px;
-}
-
 .evaluation {
-  display: inline-block;
   border: solid black;
   width: 100%;
 }
 
+.evaluation-component, .ratingStars {
+  margin: 5px 20px;
+}
+
 .text-area {
-  width: 100%;
+  width: 90%;
+}
+
+.handle-amount{
+  display: flex;
+  align-items: stretch;
+  width: 30%;
+}
+
+.amount-value {
+  display: block;
+  text-align: center;
+  width: 100px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+}
+
+.btns-cart {
+  margin: 10px 0 0 30px;
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }

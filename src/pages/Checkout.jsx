@@ -1,5 +1,5 @@
 import React from 'react';
-import './Checkout.css';
+import '../css/Checkout.css';
 
 export default class Checkout extends React.Component {
   render() {

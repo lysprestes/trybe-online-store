@@ -45,7 +45,7 @@ export default class ProductEvaluation extends React.Component {
       <div className="product-evaluation">
         <h4>Avaliações</h4>
         <form className="evaluation">
-          <label htmlFor="email">
+          <label htmlFor="email" className="evaluation-component">
             <input
               id="email"
               type="text"
@@ -55,7 +55,7 @@ export default class ProductEvaluation extends React.Component {
               className="form-control"
             />
           </label>
-          <div>
+          <div className="ratingStars">
             {[...Array(maxRating)].map((star, i) => {
               const ratingValue = i + 1;
 
@@ -74,14 +74,14 @@ export default class ProductEvaluation extends React.Component {
                     size="30"
                     onMouseEnter={ () => this.handleHoverEnter(ratingValue) }
                     onMouseLeave={ this.handleHoverLeave }
-                    color={ ratingValue <= (hover || rating) ? '#3483fa' : '#ffffff' }
+                    color={ ratingValue <= (hover || rating) ? '#3483fa' : '#C0C0C0' }
                   />
                 </label>
               );
             })}
           </div>
 
-          <label htmlFor="comment" className="text-area">
+          <label htmlFor="comment" className="evaluation-component text-area">
             <textarea
               id="comment"
               type="text"
@@ -95,7 +95,7 @@ export default class ProductEvaluation extends React.Component {
           <input
             type="button"
             value="Enviar"
-            className="btn btn-default"
+            className="btn btn-primary evaluation-component"
           />
         </form>
       </div>

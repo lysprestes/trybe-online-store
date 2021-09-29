@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToLocalStorage, readShoppingCart } from '../services/addToLocalStorage';
 import freeShipping from '../images/free.png';
 import cartImage from '../images/shopping-cart.png';
-import './ProductCards.css';
+import '../css/ProductCards.css';
 
 export default class ProductCards extends React.Component {
   constructor(props) {
