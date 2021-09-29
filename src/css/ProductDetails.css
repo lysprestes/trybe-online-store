@@ -23,11 +23,14 @@ a:link, a:visited {
 
 header {
   background-color: #fff159;
+  height: 80px;
+  padding: 20px;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .product-title .shipping {

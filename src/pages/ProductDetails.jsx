@@ -9,6 +9,7 @@ import {
   removeProduct } from '../services/addToLocalStorage';
 import cartImage from '../images/shopping-cart.png';
 import freeShipping from '../images/free.png';
+import shopp from '../images/shopp.png';
 import ProductEvaluation from '../components/ProductEvaluation';
 import '../css/ProductDetails.css';
 
@@ -78,6 +79,7 @@ export default class ProductDetails extends Component {
             <Link to="/">
               <BsArrow90DegLeft size="30" />
             </Link>
+            <img src={ shopp } alt="Online shopp" width="50px" />
             <Link to="/shopping-cart" data-testid="shopping-cart-button">
               <img src={ cartImage } width="30px" alt="Carrinho de Compras" />
               <span data-testid="shopping-cart-size">
