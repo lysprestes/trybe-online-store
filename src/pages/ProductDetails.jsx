@@ -111,7 +111,6 @@ export default class ProductDetails extends Component {
               <li>{`Aceita Mercado Pago: ${mPgo ? 'SIM' : 'NÃO'}`}</li>
               <li>{`Quantidade disponível: ${item.available_quantity}`}</li>
               <li>{`Condição do produto: ${condition === 'new' ? 'Novo' : 'Usado'}`}</li>
-              <li>{`Condição do produto: ${condition === 'new' ? 'Novo' : 'Usado'}`}</li>
             </ul>
           </div>
         </div>
