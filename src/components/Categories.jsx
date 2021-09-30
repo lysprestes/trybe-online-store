@@ -5,7 +5,7 @@ export default class Categories extends React.Component {
   render() {
     const { categories, onChange } = this.props;
     return (
-      <div className="categories-box categories-sidebar">
+      <div className="categories-sidebar">
         <aside>
           {categories.map(({ id, name }) => (
             <label htmlFor={ id } key={ id } className="control-label">
