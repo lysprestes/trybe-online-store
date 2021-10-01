@@ -18,3 +18,12 @@
 .btn-checkout {
   margin: 0 10%;
 }
+
+.checkout-products {
+  display: flex;
+  align-items: center;
+}
+
+.checkout-products img {
+  margin-right: 15px;
+}

@@ -107,7 +107,10 @@ export default class ProductDetails extends Component {
           <div>
             <h2>Informações do Produto</h2>
             <ul>
-              <li>{`Preço: R$${price}`}</li>
+              <li>
+                {`Preço: ${price.toLocaleString('pt-br', {
+                  style: 'currency', currency: 'BRL' })}`}
+              </li>
               <li>{`Aceita Mercado Pago: ${mPgo ? 'SIM' : 'NÃO'}`}</li>
               <li>{`Quantidade disponível: ${item.available_quantity}`}</li>
               <li>{`Condição do produto: ${condition === 'new' ? 'Novo' : 'Usado'}`}</li>
@@ -155,6 +158,13 @@ export default class ProductDetails extends Component {
           </button>
         </div>
         <ProductEvaluation className="product-evaluation" />
+        <footer>
+          <p>
+            Todos os direitos reservados para o Grupo 24, composto pelos incríveis devs:
+            <br />
+            Cristhyane Araldi, Écio Ferraz, Gabriel Benedetti, Lys Prestes e Yan Paroni
+          </p>
+        </footer>
       </section>
     );
   }

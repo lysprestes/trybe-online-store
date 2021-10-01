@@ -96,6 +96,13 @@ header {
 }
 
 footer {
+  position: static;
+  width: 100%;
+  background-color: #fff159;
+  font-size: .8em;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 500px;
+  bottom: 0;
+  height:75px;
+  padding-top: 25px;
 }

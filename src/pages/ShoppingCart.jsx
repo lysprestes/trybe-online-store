@@ -48,12 +48,18 @@ export default class ShoppingCart extends React.Component {
 
   handlePriceItem({ price, amount }) {
     const totalPriceItem = price * amount;
-    return `R$ ${totalPriceItem.toFixed(2).replace('.', ',')}`;
+    const realTotalPriceItem = totalPriceItem.toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL' });
+    return realTotalPriceItem;
   }
 
   handleTotalPrice(products) {
     const totalPrice = products.reduce((acc, curr) => acc + curr.amount * curr.price, 0);
-    return `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+    const realTotalPrice = totalPrice.toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL' });
+    return realTotalPrice;
   }
 
   cartLength = () => {
@@ -157,7 +163,11 @@ export default class ShoppingCart extends React.Component {
             </div>
           )}
           <footer>
-            <h3>Todos os direitos reservados para o Grupo 24</h3>
+            <p>
+              Todos os direitos reservados para o Grupo 24, composto pelos incríveis devs:
+              <br />
+              Cristhyane Araldi, Écio Ferraz, Gabriel Benedetti, Lys Prestes e Yan Paroni
+            </p>
           </footer>
         </div>
       </div>);

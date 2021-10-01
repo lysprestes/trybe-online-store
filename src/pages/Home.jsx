@@ -74,6 +74,13 @@ export default class Home extends React.Component {
           <Categories categories={ categories } onChange={ this.handleSelect } />
           <ProductCards products={ products } />
         </div>
+        <footer>
+          <p>
+            Todos os direitos reservados para o Grupo 24, composto pelos incríveis devs:
+            <br />
+            Cristhyane Araldi, Écio Ferraz, Gabriel Benedetti, Lys Prestes e Yan Paroni
+          </p>
+        </footer>
       </div>
 
     );

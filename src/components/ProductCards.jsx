@@ -69,7 +69,10 @@ export default class ProductCards extends React.Component {
                   <h4>{item.title}</h4>
                 </Link>
                 <div className="btn-price-cards">
-                  <p>{`R$ ${item.price}` }</p>
+                  <p>
+                    {item.price.toLocaleString('pt-br', {
+                      style: 'currency', currency: 'BRL' })}
+                  </p>
                   <button
                     type="button"
                     className="btn btn-success"
