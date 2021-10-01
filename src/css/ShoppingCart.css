@@ -1,4 +1,4 @@
-.header-content, .productsCart{
+.header-content, .productsCart {
   margin-left: 30px;
   margin-right: 30px;
 }
@@ -23,35 +23,35 @@ header {
 }
 
 .body {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 
 .emptyCart {
-  width: 38%;
-  text-align: center;
   margin: auto;
   margin-top: 50px;
+  text-align: center;
+  width: 38%;
 }
 
 .productsCart {
   background-color: white;
-  width: 90%;
   height: 30%;
   margin: auto;
-  padding-bottom: 60px;
   margin-top: 30px;
+  padding-bottom: 60px;
+  width: 90%;
 }
 
 .productCart {
-  display: flex;
   align-content: center;
-  justify-content: space-evenly;
   align-items: center;
-  margin: auto;
-  border-bottom: 1px solid #d4d4d4;
-  width: 90%;
-  padding-top: 20px;
   background-color: white;
+  border-bottom: 1px solid #d4d4d4;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  padding-top: 20px;
+  width: 90%;
 }
 
 .removeItemBtn {
@@ -59,8 +59,8 @@ header {
 }
 
 .productTitle {
-  width: 300px;
   text-align: center;
+  width: 300px;
 }
 
 .handle-amount {
@@ -82,27 +82,27 @@ header {
 }
 
 .itemPrice {
-  margin-left: 20px;
   align-self: baseline;
+  margin-left: 20px;
 }
 
 .checkoutPart {
   display: flex;
   flex-wrap: wrap;
-  width: 40%;
   justify-content: center;
   margin: auto;
   padding-top: 20px;
+  width: 40%;
 }
 
 footer {
-  position: static;
-  width: 100%;
   background-color: #fff159;
-  font-size: .8em;
-  text-align: center;
-  margin-top: 500px;
   bottom: 0;
-  height:75px;
+  font-size: 0.8em;
+  height: 75px;
+  margin-top: 500px;
   padding-top: 25px;
+  position: static;
+  text-align: center;
+  width: 100%;
 }

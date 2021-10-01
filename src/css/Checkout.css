@@ -20,8 +20,8 @@
 }
 
 .checkout-products {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .checkout-products img {

@@ -55,20 +55,19 @@ header {
 }
 
 .info div {
-  border: 3px outset #aaaaaa;
+  border: 3px outset #aaa;
   border-radius: 5px;
-  /* border-style: outset; */
   width: 70%;
 }
 
 .info img {
-  border: 3px inset #aaaaaa;
+  border: 3px inset #aaa;
   border-radius: 5px;
   width: 25%;
 }
 
 .evaluation {
-  border: 3px solid #aaaaaa;
+  border: 3px solid #aaa;
   border-radius: 5px;
   width: 100%;
 }
