@@ -68,16 +68,20 @@ export default class ProductCards extends React.Component {
                   ) }
                   <h4>{item.title}</h4>
                 </Link>
-
-                <p>{item.price}</p>
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  data-testid="product-add-to-cart"
-                  onClick={ () => this.handleCart(item) }
-                >
-                  Adicionar ao carrinho
-                </button>
+                <div className="btn-price-cards">
+                  <p>
+                    {item.price.toLocaleString('pt-br', {
+                      style: 'currency', currency: 'BRL' })}
+                  </p>
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    data-testid="product-add-to-cart"
+                    onClick={ () => this.handleCart(item) }
+                  >
+                    Adicionar ao carrinho
+                  </button>
+                </div>
               </div>
             ))}
           </div>

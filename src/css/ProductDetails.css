@@ -55,17 +55,20 @@ header {
 }
 
 .info div {
-  border: solid black;
+  border: 3px outset #aaa;
+  border-radius: 5px;
   width: 70%;
 }
 
 .info img {
-  border: solid black;
+  border: 3px inset #aaa;
+  border-radius: 5px;
   width: 25%;
 }
 
 .evaluation {
-  border: solid black;
+  border: 3px solid #aaa;
+  border-radius: 5px;
   width: 100%;
 }
 
@@ -102,3 +105,4 @@ header {
   margin: 10px 0 0 30px;
   width: 24%;
 }
+

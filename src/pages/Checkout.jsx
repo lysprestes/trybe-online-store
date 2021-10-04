@@ -1,12 +1,42 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { BsArrow90DegLeft } from 'react-icons/bs';
+import { readShoppingCart } from '../services/addToLocalStorage';
 import '../css/Checkout.css';
+
+import shopp from '../images/shopp.png';
 
 export default class Checkout extends React.Component {
   render() {
+    const cart = readShoppingCart();
     return (
       <section>
+        <header>
+          <div className="header-content">
+            <Link to="/shopping-cart">
+              <BsArrow90DegLeft size="30" />
+            </Link>
+            <div className="checkout-title">
+              <h1>Checkout</h1>
+            </div>
+            <img src={ shopp } alt="Online shopp" width="50px" />
+          </div>
+        </header>
         <fieldset className="scheduler-border1">
           <legend className="scheduler-border2">Revise seus Produtos</legend>
+          {cart.map(({ thumbnail, title, amount, price, id }) => (
+            <div key={ id } className="checkout-products">
+              <img src={ thumbnail } alt={ title } />
+              <div>
+                <h6>{title}</h6>
+                <p>
+                  { `Quantidade: ${amount} Preço: ${
+                    price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+                  }` }
+                </p>
+              </div>
+            </div>
+          ))}
         </fieldset>
         <form className="form-inline">
           <fieldset className="scheduler-border1">
@@ -87,6 +117,13 @@ export default class Checkout extends React.Component {
             Comprar
           </button>
         </form>
+        <footer>
+          <p>
+            Todos os direitos reservados para o Grupo 24, composto pelos incríveis devs:
+            <br />
+            Cristhyane Araldi, Écio Ferraz, Gabriel Benedetti, Lys Prestes e Yan Paroni
+          </p>
+        </footer>
       </section>
     );
   }
