@@ -13,6 +13,7 @@ export default class Home extends React.Component {
       searchInput: '',
       products: [],
       checkedInput: '',
+      loading: false,
     };
     this.handleCategories = this.handleCategories.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -39,12 +40,13 @@ export default class Home extends React.Component {
 
   async onChange() {
     const { checkedInput, searchInput } = this.state;
+    this.setState({ loading: true });
     const products = await getProductsFromCategoryAndQuery(checkedInput, searchInput);
-    this.setState({ products: products.results });
+    this.setState({ products: products.results, loading: false });
   }
 
   render() {
-    const { categories, searchInput, products } = this.state;
+    const { categories, searchInput, products, loading } = this.state;
     return (
       <div data-testid="home-initial-message">
         <div className="head-search">
@@ -72,7 +74,7 @@ export default class Home extends React.Component {
         </div>
         <div className="home-container">
           <Categories categories={ categories } onChange={ this.handleSelect } />
-          <ProductCards products={ products } />
+          {loading ? <h2>Carregando...</h2> : <ProductCards products={ products } />}
         </div>
         <footer>
           <p>

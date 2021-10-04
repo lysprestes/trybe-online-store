@@ -78,6 +78,7 @@ export default class ProductCards extends React.Component {
                     className="btn btn-success"
                     data-testid="product-add-to-cart"
                     onClick={ () => this.handleCart(item) }
+                    disabled={ item.amount === item.available_quantity }
                   >
                     Adicionar ao carrinho
                   </button>
